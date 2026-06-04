@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Qaisara Nurraysa | Elegant Portfolio</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts: elegant serif + clean sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- BARIS 14: FONT AWESOME DITAMBAH SEMULA -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ELEGANT COLOR PALETTE: Cognac, Emerald, Espresso, Amber */
+    body {
+      background: linear-gradient(135deg, #E9D8C2 0%, #D7C4A5 100%);
+      font-family: 'Inter', sans-serif;
+      color: #2E241F;
+      padding: 2rem 1rem;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#B86F3C 0.6px, transparent 0.6px);
+      background-size: 34px 34px;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      background: rgba(255, 252, 245, 0.97);
+      border: none;
+      border-radius: 36px;
+      box-shadow: 0 20px 35px -12px rgba(62, 39, 35, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-bottom: 1.8rem;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 28px 38px -16px rgba(62, 39, 35, 0.2);
+    }
+
+    .card-body {
+      padding: 2rem 2rem;
+    }
+
+    .profile-img-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #E6B846;
+      box-shadow: 0 12px 22px -8px rgba(62, 39, 35, 0.2);
+      background: #F3EDE0;
+      transition: all 0.2s;
+    }
+    .edit-pic-btn {
+      position: absolute;
+      bottom: 8px;
+      right: 5px;
+      background: #B86F3C;
+      border: none;
+      border-radius: 40px;
+      width: 36px;
+      height: 36px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .edit-pic-btn:hover {
+      background: #9E5A2E;
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 2.8rem;
+      letter-spacing: -0.02em;
+      color: #3E2723;
+      margin-top: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      color: #B86F3C;
+      font-weight: 500;
+      border-bottom: 1px solid #E6D5B8;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.9rem;
+      letter-spacing: -0.2px;
+      color: #2D6A4F;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 48px;
+      height: 2px;
+      background: #E6B846;
+      border-radius: 4px;
+    }
+
+    .editable-text {
+      cursor: pointer;
+      transition: background 0.1s ease, outline 0.1s;
+      border-radius: 12px;
+      padding: 4px 8px;
+      display: inline-block;
+    }
+    .editable-text:hover {
+      background: #FBF5E8;
+      outline: 1px dashed #E6B846;
+    }
+    .edit-icon-small {
+      font-size: 0.7rem;
+      margin-left: 6px;
+      color: #B86F3C;
+      opacity: 0.5;
+      font-weight: normal;
+    }
+    .editable-text:hover .edit-icon-small {
+      opacity: 1;
+    }
+
+    .badge-elegant {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #F0E8D9;
+      color: #3E2723;
+      font-weight: 500;
+      padding: 0.55rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      margin-right: 0.6rem;
+      margin-bottom: 0.7rem;
+      border: 0.5px solid #DCCEAE;
+      transition: all 0.2s;
+    }
+    .badge-elegant:hover {
+      background: #E9DDC6;
+      border-color: #B86F3C;
+    }
+
+    .delete-badge-icon {
+      cursor: pointer;
+      font-size: 0.7rem;
+      margin-left: 6px;
+      opacity: 0.6;
+      font-style: normal;
+      font-weight: bold;
+    }
+    .delete-badge-icon:hover {
+      opacity: 1;
+      color: #B86F3C;
+    }
+
+    .project-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .project-list li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px dashed #E5D9C6;
+      padding-bottom: 0.7rem;
+    }
+    .project-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      font-weight: 500;
+      color: #2E241F;
+    }
+    .project-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .action-icon {
+      background: none;
+      border: none;
+      color: #C6B191;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: 0.2s;
+      font-weight: 500;
+    }
+    .action-icon:hover {
+      color: #B86F3C;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #FCF8F0;
+      padding: 0.7rem 1.2rem;
+      border-radius: 60px;
+      margin-bottom: 0.8rem;
+      border: 0.5px solid #EADDBF;
+    }
+    .contact-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contact-value {
+      font-weight: 500;
+      color: #3E2723;
+    }
+    .contact-label {
+      font-weight: 600;
+      color: #B86F3C;
+      min-width: 60px;
+    }
+
+    .btn-add {
+      background: #E6B846;
+      border: none;
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #3E2723;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .btn-add:hover {
+      background: #D4A432;
+      transform: translateY(-1px);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #8B6B4A;
+      font-weight: 400;
+    }
+
+    @media (max-width: 650px) {
+      .card-body {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .about-text {
+      line-height: 1.65;
+      color: #2E241F;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="portfolioContainer">
+  
+  <!-- ========== PROFILE CARD ========= -->
+  <div class="card" id="profileCard">
+    <div class="card-body text-center">
+      <div class="profile-img-wrapper">
+        <img src="star.jpg" alt="Profile" class="profile-img" id="profileImage">
+        <!-- BARIS 175: ICON CAMERA DENGAN FONT AWESOME DITAMBAH SEMULA -->
+        <button class="edit-pic-btn" id="editProfilePicBtn" title="Tukar foto profil"><i class="fas fa-camera"></i></button>
+      </div>
+      <!-- BARIS 179-181: ICON PEN DENGAN FONT AWESOME DITAMBAH SEMULA -->
+      <h1 id="profileName" class="editable-text" contenteditable="true">Qaisara Nurraysa Binti Isnin <i class="fas fa-pen edit-icon-small"></i></h1>
+      <div class="subtitle mt-2" id="profileTitle" contenteditable="true">Bachelor in Computer Science <i class="fas fa-pen edit-icon-small"></i></div>
+      <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap">
+        <span class="badge-elegant">Data Analysis</span>
+        <span class="badge-elegant">Mobile Developer</span>
+      </div>
+      <div class="mt-2 text-muted small" style="color:#B86F3C;">Klik pada mana-mana teks untuk edit</div>
+    </div>
+  </div>
+
+  <!-- ========== ABOUT ME CARD ========= -->
+  <div class="card">
+    <div class="card-body">
+      <h3 class="section-title">About Me</h3>
+      <p id="aboutText" class="about-text editable-text" contenteditable="true">Passionate about software development, mobile application development and cloud computing. I thrive on building intuitive, human-centered digital solutions. Currently exploring cloud-native architecture and UI micro-interactions.<i class="fas fa-pen edit-icon-small"></i></p>
+    </div>
+  </div>
+
+  <!-- ========== SKILLS CARD ========= -->
+  <div class="card">
+    <div class="card-body">
+      <h3 class="section-title">Skills & Technologies</h3>
+      <div id="skillsContainer" class="mt-2 d-flex flex-wrap">
+        <span class="badge-elegant" data-skill="html">HTML5</span>
+        <span class="badge-elegant" data-skill="cpp">CSS</span>
+        <span class="badge-elegant" data-skill="js">JavaScript</span>
+        <span class="badge-elegant" data-skill="firebase">Firebase</span>
+        <span class="badge-elegant" data-skill="python">Python</span>
+      </div>
+      <div class="mt-3">
+        <button class="btn-add" id="addSkillBtn">+ Tambah Skill</button>
+        <span class="small text-muted ms-2" style="color:#8B6B4A;">(double klik badge untuk edit nama, klik 'x' untuk padam)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PROJECTS CARD ========= -->
+  <div class="card">
+    <div class="card-body">
+      <h3 class="section-title">Projects</h3>
+      <ul class="project-list" id="projectList">
+        <li data-project-id="0">
+          <div class="project-text"><span class="project-name editable-text" contenteditable="true">CGPA Tracker App</span></div>
+          <div class="project-actions"><button class="action-icon delete-project-item" title="Padam projek">✕</button></div>
+        </li>
+        <li data-project-id="1">
+          <div class="project-text"><span class="project-name editable-text" contenteditable="true">Scam Account Checker System</span></div>
+          <div class="project-actions"><button class="action-icon delete-project-item" title="Padam projek">✕</button></div>
+        </li>
+        <li data-project-id="2">
+          <div class="project-text"><span class="project-name editable-text" contenteditable="true">Profile Website</span></div>
+          <div class="project-actions"><button class="action-icon delete-project-item" title="Padam projek">✕</button></div>
+        </li>
+      </ul>
+      <div class="mt-2"><button class="btn-add" id="addProjectBtn">+ Tambah Projek</button></div>
+    </div>
+  </div>
+
+  <!-- ========== CONTACT CARD ========= -->
+  <div class="card">
+    <div class="card-body">
+      <h3 class="section-title">Contact</h3>
+      <div id="contactList">
+        <div class="contact-item" data-contact-id="email">
+          <div class="contact-left"><span class="contact-label">Email:</span><span class="contact-value editable-text" contenteditable="true">qaisara@creativetech.my</span></div>
+        </div>
+        <div class="contact-item" data-contact-id="phone">
+          <div class="contact-left"><span class="contact-label">Phone:</span><span class="contact-value editable-text" contenteditable="true">+60 12 345 6789</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>© 2026 Profile</footer>
+</div>
+
+<script>
+  // ==================== EDIT TEKS, TAMBAH/PADAM ITEM ====================
+  
+  // ---------- Profile picture edit (upload) ----------
+  const editPicBtn = document.getElementById('editProfilePicBtn');
+  const profileImg = document.getElementById('profileImage');
+  editPicBtn.addEventListener('click', () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          profileImg.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+    input.click();
+  });
+
+  // ---------- SKILLS: edit badge (double klik), delete badge, add new skill ----------
+  function makeBadgeEditable(badgeSpan) {
+    badgeSpan.removeEventListener('dblclick', badgeEditHandler);
+    badgeSpan.addEventListener('dblclick', badgeEditHandler);
+    
+    // add delete button (tanda 'x') if not exists
+    if (!badgeSpan.querySelector('.delete-badge-icon')) {
+      const delIcon = document.createElement('span');
+      delIcon.className = 'delete-badge-icon';
+      delIcon.textContent = ' ✕';
+      delIcon.title = 'Padam skill';
+      delIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        badgeSpan.remove();
+      });
+      badgeSpan.appendChild(delIcon);
+    }
+  }
+  
+  function badgeEditHandler(e) {
+    const badge = e.currentTarget;
+    // dapatkan teks semasa (abaikan '✕')
+    let currentText = badge.innerText.replace(/✕/g, '').trim();
+    const newText = prompt('Edit skill name:', currentText);
+    if (newText && newText.trim() !== '') {
+      // simpan teks baru, buang semua child, then rebuild
+      const deleteSpan = badge.querySelector('.delete-badge-icon');
+      badge.innerHTML = newText.trim();
+      if (deleteSpan) {
+        const newDel = document.createElement('span');
+        newDel.className = 'delete-badge-icon';
+        newDel.textContent = ' ✕';
+        newDel.title = 'Padam skill';
+        newDel.addEventListener('click', (e) => {
+          e.stopPropagation();
+          badge.remove();
+        });
+        badge.appendChild(newDel);
+      } else {
+        const newDel = document.createElement('span');
+        newDel.className = 'delete-badge-icon';
+        newDel.textContent = ' ✕';
+        newDel.title = 'Padam skill';
+        newDel.addEventListener('click', (e) => {
+          e.stopPropagation();
+          badge.remove();
+        });
+        badge.appendChild(newDel);
+      }
+      makeBadgeEditable(badge);
+    }
+  }
+  
+  function initSkillsEditing() {
+    document.querySelectorAll('#skillsContainer .badge-elegant').forEach(badge => {
+      makeBadgeEditable(badge);
+    });
+  }
+  initSkillsEditing();
+  
+  document.getElementById('addSkillBtn').addEventListener('click', () => {
+    const newSkill = prompt('Masukkan nama skill baru:', 'React');
+    if (newSkill && newSkill.trim()) {
+      const newBadge = document.createElement('span');
+      newBadge.className = 'badge-elegant';
+      newBadge.innerHTML = `${escapeHtml(newSkill.trim())} <span class="delete-badge-icon" style="cursor:pointer;"> ✕</span>`;
+      document.getElementById('skillsContainer').appendChild(newBadge);
+      makeBadgeEditable(newBadge);
+      const delIcon = newBadge.querySelector('.delete-badge-icon');
+      delIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        newBadge.remove();
+      });
+    }
+  });
+
+  // ---------- PROJECTS: edit (contenteditable), delete item, add new ----------
+  function refreshProjectDeleteEvents() {
+    document.querySelectorAll('.delete-project-item').forEach(btn => {
+      btn.removeEventListener('click', handleProjectDelete);
+      btn.addEventListener('click', handleProjectDelete);
+    });
+  }
+  function handleProjectDelete(e) {
+    const li = e.currentTarget.closest('li');
+    if (li) li.remove();
+  }
+  refreshProjectDeleteEvents();
+  
+  document.getElementById('addProjectBtn').addEventListener('click', () => {
+    const projName = prompt('Nama projek baru:', 'AI Image Classifier');
+    if (projName && projName.trim()) {
+      const projectList = document.getElementById('projectList');
+      const newId = Date.now();
+      const newLi = document.createElement('li');
+      newLi.setAttribute('data-project-id', newId);
+      newLi.innerHTML = `
+        <div class="project-text"><span class="project-name editable-text" contenteditable="true">${escapeHtml(projName.trim())}</span></div>
+        <div class="project-actions"><button class="action-icon delete-project-item" title="Padam projek">✕</button></div>
+      `;
+      projectList.appendChild(newLi);
+      refreshProjectDeleteEvents();
+    }
+  });
+
+  // helper escape html
+  function escapeHtml(str) {
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    });
+  }
+
+  // ---------- CONTACT: delete item, add new, edit (contenteditable) ----------
+  function refreshContactDeleteEvents() {
+    document.querySelectorAll('.delete-contact-item').forEach(btn => {
+      btn.removeEventListener('click', handleContactDelete);
+      btn.addEventListener('click', handleContactDelete);
+    });
+  }
+  function handleContactDelete(e) {
+    const contactDiv = e.currentTarget.closest('.contact-item');
+    if (contactDiv) contactDiv.remove();
+  }
+  refreshContactDeleteEvents();
+  
+  document.getElementById('addContactBtn').addEventListener('click', () => {
+    const contactType = prompt('Jenis contact (cth: Email, Twitter, GitHub):', 'Email');
+    const contactVal = prompt('Nilai contact:', 'hello@example.com');
+    if (contactType && contactVal && contactType.trim() && contactVal.trim()) {
+      const contactContainer = document.getElementById('contactList');
+      const newContact = document.createElement('div');
+      newContact.className = 'contact-item';
+      newContact.innerHTML = `
+        <div class="contact-left"><span class="contact-label">${escapeHtml(contactType.trim())}:</span><span class="contact-value editable-text" contenteditable="true">${escapeHtml(contactVal.trim())}</span></div>
+        <button class="action-icon delete-contact-item" title="Padam contact">✕</button>
+      `;
+      contactContainer.appendChild(newContact);
+      refreshContactDeleteEvents();
+    }
+  });
+
+  // Memastikan semua editable-text berfungsi
+  document.querySelectorAll('.editable-text').forEach(el => {
+    if (!el.hasAttribute('contenteditable')) {
+      el.setAttribute('contenteditable', 'true');
+    }
+  });
+  
+  // Profile name dan title
+  const profileName = document.getElementById('profileName');
+  const profileTitleSpan = document.getElementById('profileTitle');
+  if(profileName && !profileName.hasAttribute('contenteditable')) profileName.setAttribute('contenteditable','true');
+  if(profileTitleSpan && !profileTitleSpan.hasAttribute('contenteditable')) profileTitleSpan.setAttribute('contenteditable','true');
+  
+  // Observer untuk dynamic elements
+  const skillsContainer = document.getElementById('skillsContainer');
+  const projectListElem = document.getElementById('projectList');
+  const contactListElem = document.getElementById('contactList');
+  
+  if (skillsContainer) {
+    const observerSkills = new MutationObserver(() => {
+      initSkillsEditing();
+    });
+    observerSkills.observe(skillsContainer, { childList: true, subtree: true });
+  }
+  
+  const observerProjects = new MutationObserver(() => {
+    refreshProjectDeleteEvents();
+  });
+  if (projectListElem) observerProjects.observe(projectListElem, { childList: true, subtree: true });
+  
+  const observerContacts = new MutationObserver(() => {
+    refreshContactDeleteEvents();
+  });
+  if (contactListElem) observerContacts.observe(contactListElem, { childList: true, subtree: true });
+  
+  // Fallback untuk gambar jika star.jpg tidak wujud
+  if (!profileImg.complete || profileImg.naturalWidth === 0) {
+    profileImg.onerror = () => {
+      profileImg.src = "https://ui-avatars.com/api/?background=C27E4A&color=FFF0D4&name=Qaisara&size=140&rounded=true&bold=true";
+    };
+  }
+  
+  console.log("Portfolio dengan Font Awesome (camera, pen) dan icon delete (✕) teks biasa");
+</script>
+</body>
+</html>
